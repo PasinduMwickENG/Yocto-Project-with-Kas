@@ -1,0 +1,46 @@
+# Every file needs to contain a header, that provides kas with information
+# about the context of this file.
+header:
+  # The `version` entry in the header describes for which configuration
+  # format version this file was created for. It is used by kas to figure
+  # out if it is compatible with this file. The version is an integer that
+  # is increased on every format change.
+  version: 18
+
+# The machine as it is written into the `local.conf` of bitbake.
+machine: raspberrypi3
+
+# The distro name as it is written into the `local.conf` of bitbake.
+distro: poky
+
+# The bitbake target to be built for this project.
+target: core-image-base
+
+repos:
+  # This entry includes the repository where the config file is located
+  # to the bblayers.conf. It also contains all project layers that are not
+  # versioned in separate git repositories.
+  meta-custom:
+
+  # The layers of Poky to be included in the bblayers.conf.
+  poky:
+    url: https://git.yoctoproject.org/poky
+    branch : scarthgap
+    layers:
+      meta:
+      meta-poky:
+      meta-yocto-bsp:
+
+  # The layers of Open Embedded to be included in the bblayers.conf.
+  meta-openembedded:
+    url: https://git.openembedded.org/meta-openembedded
+    branch : scarthgap
+    layers:
+      meta-networking:
+      meta-oe:
+      meta-python:
+
+  # The board support package for the Raspberry Pi.
+  meta-raspberrypi:
+   url: https://github.com/agherzan/meta-raspberrypi.git
+   branch: scarthgap
