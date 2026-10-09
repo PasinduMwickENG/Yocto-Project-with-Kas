@@ -11,7 +11,7 @@ header:
 machine: raspberrypi3
 
 # The distro name as it is written into the `local.conf` of bitbake.
-distro: poky
+distro: myos
 
 # The bitbake target to be built for this project.
 target: core-image-base
